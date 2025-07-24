@@ -56,7 +56,7 @@ async function loadLayer() {
   }
   document.getElementById('layerStatus').innerText = 'Loading...';
   try {
-    const res = await fetch(url + (url.includes('?') ? '&' : '?') + "where=1=1&outFields=*&returnGeometry=false&resultRecordCount=1&f=json");
+    const res = await fetch(url + (url.includes('?') ? '&' : '?') + "where=1=1&outFields=*&returnGeometry=false&f=json");
     const data = await res.json();
     if (!data.features || !data.features.length) {
       document.getElementById('layerStatus').innerText = 'No features returned from this layer.';
@@ -84,7 +84,7 @@ function renderSnippets() {
 }
 function insertSnippet(snippet) {
   const ta = document.getElementById('arcadeInput');
-  ta.value += (ta.value ? "\n" : "") + snippet;
+  ta.value += (ta.value  "\n" : "") + snippet;
 }
 
 function renderFieldList() {
